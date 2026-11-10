@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Онлайн-курс по SMM для начинающих: за 6 недель научитесь вести соцсети, создавать контент и подготовите проект для портфолио.">
+<meta property="og:title" content="Первый пост — курс SMM для начинающих">
+<meta property="og:description" content="Освойте SMM с нуля за 6 недель: контент-план, тексты и первый проект для портфолио.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%B1%3C/text%3E%3C/svg%3E">
+<title>Первый пост — курс SMM для начинающих</title>
+<style>
+  :root {
+    --cream: #fff7ee; --coral: #ff6b4a; --coral-dark: #e5522f;
+    --navy: #1f2a44; --sand: #f6e6d3; --white: #ffffff; --gray: #5d6475;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Segoe UI", Roboto, Arial, sans-serif; background: var(--cream); color: var(--navy); line-height: 1.6; }
+  .container { width: min(1100px, 92%); margin: 0 auto; }
+  section { padding: 80px 0; }
+  h2 { font-size: 2rem; text-align: center; margin-bottom: 12px; }
+  .lead { text-align: center; color: var(--gray); max-width: 640px; margin: 0 auto 44px; }
+
+  /* Навигация */
+  header { position: sticky; top: 0; z-index: 10; background: rgba(255,247,238,.95); box-shadow: 0 2px 10px rgba(31,42,68,.08); }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; flex-wrap: wrap; gap: 8px; }
+  .logo { font-weight: 800; font-size: 1.3rem; color: var(--coral); text-decoration: none; }
+  .nav-toggle { display: none; border: 0; background: transparent; color: var(--navy); font-size: 1.5rem; cursor: pointer; padding: 4px 8px; }
+  .nav ul { list-style: none; display: flex; gap: 22px; flex-wrap: wrap; }
+  .nav a { color: var(--navy); text-decoration: none; font-weight: 500; transition: color .2s; }
+  .nav a:hover { color: var(--coral); }
+
+  /* Кнопки */
+  .btn { display: inline-block; background: var(--coral); color: var(--white); padding: 14px 32px; border: none; border-radius: 30px;
+         font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: transform .2s, background .2s, box-shadow .2s; }
+  .btn:hover { background: var(--coral-dark); transform: translateY(-3px); box-shadow: 0 8px 18px rgba(229,82,47,.35); }
+  .btn.outline { background: transparent; color: var(--navy); border: 2px solid var(--navy); margin-left: 10px; }
+  .btn.outline:hover { background: var(--navy); color: var(--white); box-shadow: none; }
+
+  /* Hero */
+  .hero { text-align: center; padding: 110px 0 90px; background: linear-gradient(160deg, var(--sand), var(--cream)); }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.2; margin-bottom: 18px; }
+  .hero h1 span { color: var(--coral); }
+  .hero p { max-width: 620px; margin: 0 auto 30px; color: var(--gray); font-size: 1.1rem; }
+
+  /* Карточки */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+  .card { background: var(--white); border-radius: 18px; padding: 28px; box-shadow: 0 6px 18px rgba(31,42,68,.08); transition: transform .25s, box-shadow .25s; }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 14px 28px rgba(31,42,68,.14); }
+  .card .icon { font-size: 2rem; margin-bottom: 10px; }
+  .card h3 { margin-bottom: 8px; }
+  .card p { color: var(--gray); }
+  .price { font-size: 1.8rem; font-weight: 800; color: var(--coral); margin: 10px 0; }
+  .card ul { list-style: none; color: var(--gray); margin-bottom: 18px; }
+  .card li::before { content: "✓ "; color: var(--coral); font-weight: 700; }
+  .card.featured { border: 2px solid var(--coral); }
+
+  .about { max-width: 800px; }
+  .about p { margin-bottom: 14px; color: var(--gray); }
+
+  .scroll-reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .grid > .scroll-reveal:nth-child(2) { transition-delay: .08s; }
+  .grid > .scroll-reveal:nth-child(3) { transition-delay: .16s; }
+  .grid > .scroll-reveal:nth-child(4) { transition-delay: .24s; }
+
+  .reviews { background: var(--sand); }
+  .review p { font-style: italic; margin-bottom: 12px; }
+  .review b { color: var(--coral); }
+
+  /* Контакты */
+  .contacts { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .contacts ul { list-style: none; margin-top: 12px; }
+  .contacts li { margin-bottom: 10px; }
+  form { background: var(--white); padding: 28px; border-radius: 18px; box-shadow: 0 6px 18px rgba(31,42,68,.08); }
+  form label { display: block; margin-bottom: 14px; font-weight: 500; }
+  form input { width: 100%; padding: 12px; margin-top: 6px; border: 1px solid #d9cdbd; border-radius: 10px; font-size: 1rem; }
+  form input:focus { outline: 2px solid var(--coral); border-color: transparent; }
+  #msg { margin-top: 12px; color: var(--coral-dark); font-weight: 600; }
+
+  footer { background: var(--navy); color: #c9cfdd; text-align: center; padding: 26px 0; font-size: .9rem; }
+
+  @media (max-width: 760px) {
+    section { padding: 56px 0; }
+    .contacts { grid-template-columns: 1fr; }
+    .btn.outline { margin: 12px 0 0 0; }
+    .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+    .nav nav { display: none; flex-basis: 100%; }
+    .nav nav.is-open { display: block; }
+    .nav ul { flex-direction: column; gap: 0; font-size: .9rem; }
+    .nav li + li { border-top: 1px solid var(--sand); }
+    .nav nav a { display: block; padding: 9px 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-reveal { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#top">Первый пост</a>
+    <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-navigation"><span aria-hidden="true">☰</span></button>
+    <nav id="main-navigation">
+      <ul>
+        <li><a href="#about">О курсе</a></li>
+        <li><a href="#benefits">Преимущества</a></li>
+        <li><a href="#program">Программа</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="container">
+      <h1>Научитесь вести соцсети <span>с нуля до первых клиентов</span></h1>
+      <p>Онлайн-курс по SMM для студентов и начинающих. За 6 недель вы создадите контент-план, научитесь писать тексты и оформите свой первый проект для портфолио.</p>
+      <a class="btn" href="#contacts">Записаться на курс</a>
+      <a class="btn outline" href="#program">Посмотреть программу</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container about">
+      <div>
+        <h2 style="text-align:left">О курсе</h2>
+        <p>«Первый пост» создан для тех, кто хочет попробовать себя в SMM, но не знает, с чего начать. Мы объясняем простым языком и сразу закрепляем всё на практике.</p>
+        <p>Каждую неделю вы выполняете небольшое задание и получаете обратную связь от наставника. К концу курса у вас будет готовый проект, который не стыдно показать работодателю.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="benefits" style="background:var(--white)">
+    <div class="container">
+      <h2>Почему выбирают нас</h2>
+      <p class="lead">Четыре причины, по которым курс подходит новичкам.</p>
+      <div class="grid">
+        <div class="card"><div class="icon">🎯</div><h3>Только практика</h3><p>Минимум теории, максимум заданий на реальных примерах.</p></div>
+        <div class="card"><div class="icon">👩‍🏫</div><h3>Живой наставник</h3><p>Каждое задание проверяет практикующий специалист.</p></div>
+        <div class="card"><div class="icon">🕒</div><h3>Гибкий график</h3><p>Занимайтесь в удобное время, уроки доступны в записи.</p></div>
+        <div class="card"><div class="icon">💼</div><h3>Проект в портфолио</h3><p>Вы закончите курс с готовым кейсом для резюме.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="program">
+    <div class="container">
+      <h2>Программа и тарифы</h2>
+      <p class="lead">Выберите формат, который подходит вам.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Базовый</h3>
+          <div class="price">4 900 ₽</div>
+          <ul><li>Видеоуроки</li><li>Домашние задания</li><li>Чат группы</li></ul>
+          <a class="btn" href="#contacts">Выбрать</a>
+        </div>
+        <div class="card featured">
+          <h3>Стандарт</h3>
+          <div class="price">9 900 ₽</div>
+          <ul><li>Всё из «Базового»</li><li>Проверка заданий наставником</li><li>Разбор вашего проекта</li></ul>
+          <a class="btn" href="#contacts">Выбрать</a>
+        </div>
+        <div class="card">
+          <h3>Максимум</h3>
+          <div class="price">14 900 ₽</div>
+          <ul><li>Всё из «Стандарта»</li><li>Личные консультации</li><li>Помощь с резюме</li></ul>
+          <a class="btn" href="#contacts">Выбрать</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" class="reviews">
+    <div class="container">
+      <h2>Отзывы выпускников</h2>
+      <p class="lead">Что говорят те, кто уже прошёл курс.</p>
+      <div class="grid">
+        <div class="card review"><p>«Раньше боялась писать посты, а теперь веду три аккаунта. Задания очень понятные.»</p><b>Мария, 20 лет</b></div>
+        <div class="card review"><p>«Понравилось, что наставник отвечает быстро и объясняет без заумных слов.»</p><b>Артём, 22 года</b></div>
+        <div class="card review"><p>«Кейс из курса показал на собеседовании, и меня взяли на стажировку.»</p><b>Ольга, 21 год</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts">
+    <div class="container contacts">
+      <div>
+        <h2 style="text-align:left">Контакты</h2>
+        <p>Оставьте заявку, и мы свяжемся с вами в течение дня.</p>
+        <ul>
+          <li>📍 Санкт-Петербург, онлайн</li>
+          <li>📞 +7 (000) 000-00-00</li>
+          <li>✉️ hello@pervypost.example</li>
+          <li>🕘 Ежедневно с 10:00 до 20:00</li>
+        </ul>
+      </div>
+      <form id="form">
+        <label>Ваше имя<input type="text" name="name" required></label>
+        <label>Электронная почта<input type="email" name="email" required></label>
+        <button class="btn" type="submit">Отправить заявку</button>
+        <p id="msg"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">© 2026 «Первый пост». Учебный проект.</div>
+</footer>
+
+<script>
+  const menuToggle = document.querySelector('.nav-toggle');
+  const navigation = document.getElementById('main-navigation');
+  const closeMenu = () => {
+    navigation.classList.remove('is-open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Открыть меню');
+    menuToggle.querySelector('span').textContent = '☰';
+  };
+  menuToggle.addEventListener('click', function () {
+    const isOpen = navigation.classList.toggle('is-open');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+    menuToggle.querySelector('span').textContent = isOpen ? '×' : '☰';
+  });
+  navigation.addEventListener('click', function (e) {
+    if (e.target.closest('a')) closeMenu();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const revealObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('main > section:not(.hero) .container > :not(.grid), main > section:not(.hero) .grid > *')
+      .forEach(function (element) {
+        element.classList.add('scroll-reveal');
+        revealObserver.observe(element);
+      });
+  }
+
+  document.getElementById('form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    document.getElementById('msg').textContent = 'Спасибо! Мы свяжемся с вами в ближайшее время.';
+    this.reset();
+  });
+</script>
+</body>
+</html>
