@@ -27,15 +27,20 @@
   header { position: sticky; top: 0; z-index: 10; background: rgba(255,247,238,.95); box-shadow: 0 2px 10px rgba(31,42,68,.08); }
   .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; flex-wrap: wrap; gap: 8px; }
   .logo { font-weight: 800; font-size: 1.3rem; color: var(--coral); text-decoration: none; }
-  .nav-toggle { display: none; border: 0; background: transparent; color: var(--navy); font-size: 1.5rem; cursor: pointer; padding: 4px 8px; }
+  .nav-toggle { display: none; border: 0; background: transparent; color: var(--navy); font-size: 1.5rem; cursor: pointer; padding: 4px 8px; transition: transform .2s, color .2s; }
+  .nav-toggle:active { transform: scale(.92); }
   .nav ul { list-style: none; display: flex; gap: 22px; flex-wrap: wrap; }
   .nav a { color: var(--navy); text-decoration: none; font-weight: 500; transition: color .2s; }
   .nav a:hover { color: var(--coral); }
+  .nav a:focus-visible, .nav-toggle:focus-visible, .btn:focus-visible {
+    outline: 3px solid var(--coral); outline-offset: 3px;
+  }
 
   /* Кнопки */
   .btn { display: inline-block; background: var(--coral); color: var(--white); padding: 14px 32px; border: none; border-radius: 30px;
          font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: transform .2s, background .2s, box-shadow .2s; }
   .btn:hover { background: var(--coral-dark); transform: translateY(-3px); box-shadow: 0 8px 18px rgba(229,82,47,.35); }
+  .btn:active { transform: translateY(0) scale(.97); }
   .btn.outline { background: transparent; color: var(--navy); border: 2px solid var(--navy); margin-left: 10px; }
   .btn.outline:hover { background: var(--navy); color: var(--white); box-shadow: none; }
 
@@ -80,8 +85,8 @@
   .contacts li { margin-bottom: 10px; }
   form { background: var(--white); padding: 28px; border-radius: 18px; box-shadow: 0 6px 18px rgba(31,42,68,.08); }
   form label { display: block; margin-bottom: 14px; font-weight: 500; }
-  form input { width: 100%; padding: 12px; margin-top: 6px; border: 1px solid #d9cdbd; border-radius: 10px; font-size: 1rem; }
-  form input:focus { outline: 2px solid var(--coral); border-color: transparent; }
+  form input { width: 100%; padding: 12px; margin-top: 6px; border: 1px solid #d9cdbd; border-radius: 10px; font-size: 1rem; transition: border-color .2s, box-shadow .2s; }
+  form input:focus { outline: none; border-color: var(--coral); box-shadow: 0 0 0 3px rgba(255,107,74,.2); }
   #msg { margin-top: 12px; color: var(--coral-dark); font-weight: 600; }
 
   footer { background: var(--navy); color: #c9cfdd; text-align: center; padding: 26px 0; font-size: .9rem; }
@@ -92,12 +97,21 @@
     .btn.outline { margin: 12px 0 0 0; }
     .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
     .nav nav { display: none; flex-basis: 100%; }
-    .nav nav.is-open { display: block; }
+    .nav nav.is-open { display: block; animation: menu-open .2s ease-out; }
     .nav ul { flex-direction: column; gap: 0; font-size: .9rem; }
     .nav li + li { border-top: 1px solid var(--sand); }
     .nav nav a { display: block; padding: 9px 0; }
   }
+  @keyframes menu-open {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
   @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      scroll-behavior: auto !important;
+      animation: none !important;
+      transition: none !important;
+    }
     .scroll-reveal { opacity: 1; transform: none; transition: none; }
   }
 </style>
