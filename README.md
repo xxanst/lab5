@@ -1,6 +1,9 @@
 # Первый пост
 
+![Deploy static site](https://github.com/xxanst/lab5/actions/workflows/deploy.yml/badge.svg)
+
 Учебный проект: одностраничный сайт (лендинг) онлайн-курса по SMM для начинающих.
+Сайт автоматически проверяется и публикуется через GitHub Actions при каждом push в ветку `main`.
 
 ## О проекте
 
